@@ -1,0 +1,14 @@
+h1 {
+  color: white;
+}
+
+.product-card {
+  border: 1px solid black;
+  list-style: none;
+}
+
+.product-link {
+  text-decoration: none;
+  color: white;
+}
+
