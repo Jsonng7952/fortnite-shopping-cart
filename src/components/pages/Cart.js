@@ -1,8 +1,12 @@
 import React from 'react';
+import '../../css/Cart.css';
 
-function Cart() {
+function Cart({itemCount}) {
+
   return (
-    <div>Cart</div>
+    <div className='cart'>
+      Cart{itemCount}
+    </div>
   )
 }
 

@@ -1,10 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Icon from '@mdi/react'
+import { mdiCartOutline } from '@mdi/js';
 import '../css/Nav.css';
 
-function Nav() {
+function Nav({itemCount}) {
   return (
     <div className='nav'>
+      {console.log('Nav Loaded')}
       <Link to='/' className='text-link'>
         <div>Fortnite Daily</div>
       </Link>
@@ -16,7 +19,12 @@ function Nav() {
           <li>Shop</li>
         </Link>
         <Link to='/cart' className='text-link'>
-          <li>Cart</li>
+          <div>
+            <li>
+              <Icon path={mdiCartOutline} size={1} className='cart-icon'/>
+            </li>            
+            <div className='item-counter'>{itemCount}</div>            
+          </div>
         </Link>
       </ul>
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import '../../css/ProductDetails.css';
 
-function ProductDetails() {
+function ProductDetails({addItemCount}) {
 
   let {productId} = useParams();
   const [item, setItem] = useState();
@@ -22,7 +22,7 @@ function ProductDetails() {
       <h1>{item.name}</h1>
       <div>{item.description}</div>
       <img src={`${item.images.icon}`} alt='product-icon'></img>
-      <button>Add to Cart</button>
+      <button onClick={() => addItemCount(item.name)}>Add to Cart</button>
     </div>
 }
 
