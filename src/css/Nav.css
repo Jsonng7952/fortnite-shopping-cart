@@ -1,19 +1,47 @@
+@font-face {
+  font-family: Fornite Font;
+  src: url('../components/fonts/fortnite.otf');
+}
+
 .nav {
+  font-family: Fornite Font;
   background-color: #111827;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px 0 20px;
+  padding: 0 50px 0 50px;
 }
 
 .nav-links {
   display: flex;
-  gap: 50px;
+  align-items: center;
+  gap: 30px;
   list-style: none;
 }
 
 .text-link {
   text-decoration: none;
-  color: white;
-  font-weight: bold;
+  color: #f9fafb;
+  font-size: 1.8rem;
+}
+
+.cart-icon {
+  vertical-align: middle;
+  border-radius: 100%;
+  padding: 10px;
+  background-color: #29323f;
+}
+
+.item-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8px;
+  right: 36px;
+  font-size: 1.2rem;
+  border-radius: 100%;
+  width: 28px;
+  height: 28px;
+  background-color: #be123c;
 }
