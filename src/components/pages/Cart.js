@@ -1,11 +1,17 @@
 import React from 'react';
 import '../../css/Cart.css';
 
-function Cart({itemCount}) {
+function Cart({addedProducts}) {
 
   return (
     <div className='cart'>
-      Cart{itemCount}
+      <h1>Your Shopping Cart</h1>
+      {addedProducts.map(product => 
+        <div>
+          <li key={product.productId}>{`${product.productName} | ${product.productId} | ${product.productCount}`}</li>
+          <input type='number' value={product.productCount}></input>
+        </div>
+      )}
     </div>
   )
 }

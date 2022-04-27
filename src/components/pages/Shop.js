@@ -16,16 +16,18 @@ function Shop() {
 
   return (items === undefined) ? 
     <div>Loading Data...</div> :
-    <div>
+    <div className='shop'>
       <h1>Daily</h1>
-      {items.daily.entries.map(dailyItem => 
-        <div className='product-card'>
-          {/*<img src={`${dailyItem.items[0].images.icon}`} alt='product-card-icon'></img>*/}
-          <Link to={`/shop/${dailyItem.items[0].id}`} className='product-link'>
-            <li key={dailyItem.items[0].id}>{dailyItem.items[0].name} : {dailyItem.finalPrice}</li>
-          </Link>
-        </div>
-      )}
+      <div className='daily-shop'>
+        {items.daily.entries.map(dailyItem => 
+          <div className='product-card'>
+            <Link to={`/shop/${dailyItem.items[0].id}`} className='product-link'>
+              {<img src={`${dailyItem.items[0].images.icon}`} alt='product-card-icon'></img>}
+              <li key={dailyItem.items[0].id}>{dailyItem.items[0].name} : {dailyItem.finalPrice}</li>
+            </Link>
+          </div>
+        )}        
+      </div>
     </div>
     
 

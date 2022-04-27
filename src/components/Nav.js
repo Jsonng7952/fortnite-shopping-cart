@@ -1,15 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Icon from '@mdi/react'
 import { mdiCartOutline } from '@mdi/js';
 import '../css/Nav.css';
 
-function Nav({itemCount}) {
+function Nav({addedProducts}) {
+
+  const [totalProductCount, setTotalProductCount] = useState(0);
+
+  useEffect(() => {
+    let total = 0;
+    addedProducts.forEach(productInfo => {
+      total += parseInt(productInfo.productCount);
+    });
+    setTotalProductCount(total);
+  }, [addedProducts]);
+
   return (
     <div className='nav'>
-      {console.log('Nav Loaded')}
       <Link to='/' className='text-link'>
-        <div>Fortnite Daily</div>
+        <div>Fortnite Shop</div>
       </Link>
       <ul className='nav-links'>
         <Link to='/' className='text-link'>
@@ -23,7 +33,7 @@ function Nav({itemCount}) {
             <li>
               <Icon path={mdiCartOutline} size={1} className='cart-icon'/>
             </li>            
-            <div className='item-counter'>{itemCount}</div>            
+            <div className='item-counter'>{totalProductCount}</div>            
           </div>
         </Link>
       </ul>
