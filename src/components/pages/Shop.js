@@ -21,7 +21,7 @@ function Shop() {
       <div className='daily-shop'>
         {items.daily.entries.map(dailyItem => 
           <div className='product-card'>
-            <Link to={`/shop/${dailyItem.items[0].id}`} className='product-link'>
+            <Link to={`/shop/${dailyItem.items[0].id}/${dailyItem.finalPrice}`} className='product-link'>
               {<img src={`${dailyItem.items[0].images.icon}`} alt='product-card-icon'></img>}
               <li key={dailyItem.items[0].id}>{dailyItem.items[0].name} : {dailyItem.finalPrice}</li>
             </Link>

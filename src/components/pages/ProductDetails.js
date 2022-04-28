@@ -4,9 +4,9 @@ import '../../css/ProductDetails.css';
 
 function ProductDetails({addProduct}) {
 
-  let {productId} = useParams();
+  let {productId, productPrice} = useParams();
   const [item, setItem] = useState();
-  const [productCount, setProductCount] = useState(0);
+  const [productCount, setProductCount] = useState(1);
 
   useEffect(() => {
     fetch(`https://fortnite-api.com/v2/cosmetics/br/${productId}`)
@@ -20,7 +20,7 @@ function ProductDetails({addProduct}) {
   // When the form is submitted pass the product information to the addProduct method in the RouteSwitch.
   const handleSubmit = (e) => {
     if(productCount > 0) {
-      addProduct(productCount, item.id, item.name, item.images.icon);     
+      addProduct(productCount, item.id, item.name, productPrice, item.images.icon);     
     }
     e.preventDefault();   
   };
@@ -36,8 +36,9 @@ function ProductDetails({addProduct}) {
       <h1>{item.name}</h1>
       <div>{item.description}</div>
       <img src={`${item.images.icon}`} alt='product-icon'></img>
+      <div>{productPrice}</div>
       <form onSubmit={handleSubmit}>
-        <input type='number' min={0} onChange={handleProductCount}></input>
+        <input type='number' min={0} value={productCount} onChange={handleProductCount}></input>
         <button type='submit'>Add to Cart</button>
       </form>
     </div>

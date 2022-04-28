@@ -11,7 +11,7 @@ function RouteSwitch() {
   const [addedProducts, setAddedProducts] = useState([]);
 
   // Added products are passed to the Nav & Cart component.
-  const addProduct = (pCount, pId, pName, pIcon) => {
+  const addProduct = (pCount, pId, pName, pPrice, pIcon) => {
     // If the product already exist in the array, find the existing product in the array and increase the count.
     if(addedProducts.some(product => product.productId === pId)) {
       setAddedProducts(addedProducts.map(product => 
@@ -27,10 +27,21 @@ function RouteSwitch() {
         productCount: pCount,
         productId: pId,
         productName: pName,
+        productPrice: pPrice,
         productIcon: pIcon
       }]);      
     }
+  };
 
+  const changeProductCount = (pCount, pId) => {
+    console.log(`Change Product Count ${pId} ${pCount}`);
+    setAddedProducts(addedProducts.map(product => 
+      product.productId === pId 
+      // Copy all the old objects and update and append the current selected product
+      ? {...product, productCount: pCount}
+      // Else return the unmodified product
+      : product
+    ));
   };
 
   return (
@@ -39,8 +50,8 @@ function RouteSwitch() {
       <Routes>  
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/cart" element={<Cart addedProducts={addedProducts}/>} />
-        <Route path="/shop/:productId" element={<ProductDetails addProduct={addProduct}/>} />
+        <Route path="/cart" element={<Cart addedProducts={addedProducts} changeProductCount={changeProductCount}/>} />
+        <Route path="/shop/:productId/:productPrice" element={<ProductDetails addProduct={addProduct}/>} />
       </Routes>
     </BrowserRouter>
   )
