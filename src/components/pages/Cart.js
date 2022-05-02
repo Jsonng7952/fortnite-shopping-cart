@@ -4,7 +4,6 @@ import '../../css/Cart.css';
 function Cart({addedProducts, changeProductCount}) {
 
   const [totalPrice, setTotalPrice] = useState(0);
-  const [cartItems, setCartItems] = useState([]);
 
   // Calculate the total of the cost of the products currently in the cart.
   useEffect(() => {
@@ -17,10 +16,18 @@ function Cart({addedProducts, changeProductCount}) {
     }
   }, [addedProducts]);
 
-  const handleProductCount = (pCount, pId) => {
-    changeProductCount(pCount, pId);
+  // Increment product count when pressing the + or - button.
+  const handleButtonClick = (pCount, pId, isAdd) => {
+    (isAdd === 'increment') 
+    ? changeProductCount(parseInt(pCount) + 1, pId)
+    :  changeProductCount(parseInt(pCount) - 1, pId)
   };
- 
+
+  // Changes the input for the product count.
+  const handleChange = (event, pId) => { 
+    changeProductCount(event.target.value, pId);
+  };
+
   return (addedProducts.length === 0) 
   ? <div className='cart'>
       <h1>Your Shopping Cart</h1>
@@ -29,12 +36,12 @@ function Cart({addedProducts, changeProductCount}) {
   : <div className='cart'>
       <h1>Your Shopping Cart</h1>
       {addedProducts.map(product => 
-        <div className='cart-list'>
-          <li key={product.productId}>{`${product.productName} | ${product.productId} | ${product.productCount} | ${product.productPrice}`}</li>
+        <div key={product.productId} className='cart-list'>
+          <li>{`${product.productName} | ${product.productId} | ${product.productCount} | ${product.productPrice}`}</li>
           <div className='cart-product-count'>
-            <button onClick={() => handleProductCount(product.productCount, product.productId)}>Add</button>
-            <input type='number' value={product.productCount} onChange={() => changeProductCount(product.productCount, product.productId)}></input>
-            <button onClick={() => handleProductCount(product.productCount, product.productId)}>Sub</button>
+            <button onClick={() => handleButtonClick(product.productCount, product.productId, 'increment')}>Add</button>
+            <input type='number' value={product.productCount} onChange={(event) => handleChange(event, product.productId)} ></input>
+            <button onClick={() => handleButtonClick(product.productCount, product.productId, 'decrement')}>Sub</button>
           </div>
         </div>
       )}

@@ -34,14 +34,20 @@ function RouteSwitch() {
   };
 
   const changeProductCount = (pCount, pId) => {
-    console.log(`Change Product Count ${pId} ${pCount}`);
-    setAddedProducts(addedProducts.map(product => 
-      product.productId === pId 
-      // Copy all the old objects and update and append the current selected product
-      ? {...product, productCount: pCount}
-      // Else return the unmodified product
-      : product
-    ));
+    // If the count is decreased to 0, remove the product from the array.
+    if(pCount > 0) {
+      setAddedProducts(addedProducts.map(product => 
+        product.productId === pId 
+        // Copy all the old objects and update and append the current selected product
+        ? {...product, productCount: pCount}
+        // Else return the unmodified product
+        : product
+      ));      
+    }
+    else {
+      setAddedProducts(addedProducts.filter(product => product.productId !== pId));
+    }
+    
   };
 
   return (
@@ -51,7 +57,7 @@ function RouteSwitch() {
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart addedProducts={addedProducts} changeProductCount={changeProductCount}/>} />
-        <Route path="/shop/:productId/:productPrice" element={<ProductDetails addProduct={addProduct}/>} />
+        <Route path="/shop/:productId" element={<ProductDetails addProduct={addProduct}/>} />
       </Routes>
     </BrowserRouter>
   )
