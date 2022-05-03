@@ -16,6 +16,12 @@ function Nav({addedProducts}) {
     setTotalProductCount(total);
   }, [addedProducts]);
 
+  const displayProductCount = () => {
+    return (totalProductCount > 0)
+    ? <div className='item-counter'>{totalProductCount}</div>
+    : null
+  };
+
   return (
     <div className='nav'>
       <Link to='/' className='text-link'>
@@ -33,7 +39,7 @@ function Nav({addedProducts}) {
             <li>
               <Icon path={mdiCartOutline} size={1} className='cart-icon'/>
             </li>            
-            <div className='item-counter'>{totalProductCount}</div>            
+            {displayProductCount()}
           </div>
         </Link>
       </ul>
