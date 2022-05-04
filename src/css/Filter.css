@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Fornite Font;
+  src: url('../components/fonts/fortnite.otf');
+}
+
+.filter {
+  font-family: Fornite Font;
+  border: 1px solid white;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
