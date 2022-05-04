@@ -17,29 +17,32 @@ import '../css/Filter.css';
   umbrellas
 
   Seen in API
+  backpack
   emote
   glider
   pickaxe
+  loadings screens
   outfit
   wraps
 */
 
 function Filter({filterResults}) {
 
-  const handleFilter = (event) => {
-    let filterValue = event.target.innerHTML.toLowerCase();
+  const handleFilter = (filterValue) => {
     filterResults(filterValue);
   };
 
   return (
     <div className='filter'>
       <div className='filter-buttons'>
-        <button onClick={(event) => handleFilter(event)}>All</button>
-        <button onClick={(event) => handleFilter(event)}>Emote</button>
-        <button onClick={(event) => handleFilter(event)}>Glider</button>
-        <button onClick={(event) => handleFilter(event)}>Pickaxe</button>
-        <button onClick={(event) => handleFilter(event)}>Outfit</button>
-        <button onClick={(event) => handleFilter(event)}>Wrap</button>
+        <button onClick={() => handleFilter('all')}>All</button>
+        <button onClick={() => handleFilter('backpack')}>Backpack</button>
+        <button onClick={() => handleFilter('emote')}>Emote</button>
+        <button onClick={() => handleFilter('glider')}>Glider</button>
+        <button onClick={() => handleFilter('pickaxe')}>Pickaxe</button>
+        <button onClick={() => handleFilter('loadingscreen')}>Loading Screen</button>
+        <button onClick={() => handleFilter('outfit')}>Outfit</button>
+        <button onClick={() => handleFilter('wrap')}>Wrap</button>
       </div>
     </div>
   )
