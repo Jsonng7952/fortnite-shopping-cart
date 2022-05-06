@@ -6,9 +6,8 @@ function Home() {
 
   return (
     <div className='home'>
-      Home
-      <Link to='/shop'>
-        Shop
+      <Link to='/shop' className='home-text-link'>
+        SHOP NOW
       </Link>
     </div>
   )
