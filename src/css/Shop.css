@@ -1,14 +1,110 @@
-h1 {
+@font-face {
+  font-family: Fortnite Font;
+  src: url('../components/fonts/fortnite.otf');
+}
+
+.shop {
+  font-family: Fornite Font;
+  letter-spacing: .2rem;
+  margin: 20px 125px;
+  text-align: center;
+}
+
+.shop-header {
   color: white;
+  background-color: #111827;
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+.daily-shop, .featured-shop, .special-featured-shop {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 3rem));
+  grid-auto-rows: 1fr;
+  gap: 3rem;
+  justify-items: center; 
 }
 
 .product-card {
-  border: 1px solid black;
   list-style: none;
+  width: fit-content;
+  height: fit-content;
+  border: 5px solid rgb(255, 0, 255);
+  box-shadow: 0px 0px 10px rgb(255, 0, 255);
+
+  position: relative;
+  animation-name: productcard;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+
+  transition: transform 0.5s;
+}
+
+@keyframes productcard {
+  0%    {opacity: 0; filter: blur(4px);}
+  100%  {opacity: 1; filter: blur(0);}
+}
+
+.product-card:hover {
+  transform: scale(1.1);
+}
+
+.product-card.common {
+  border: 5px solid grey;
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+
+.product-card.uncommon {
+  border: 5px solid green;
+  box-shadow: 0px 0px 10px rgb(0, 255, 0);
+}
+
+.product-card.rare {
+  border: 5px solid blue;
+  box-shadow: 0px 0px 10px rgb(0, 81, 255);
+}
+
+.product-card.epic {
+  border: 5px solid purple;
+  box-shadow: 0px 0px 10px rgb(255, 0, 255);
+}
+
+.product-card.legendary {
+  border: 5px solid orange;
+  box-shadow: 0px 0px 10px rgb(255, 174, 0);
+}
+
+.product-card img {
+  width: 300px;
+  height: 300px;
+  border: none;
 }
 
 .product-link {
   text-decoration: none;
-  color: white;
+}
+
+/* Product Name and Price */
+.product-shop-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #18181b;
+  color: #fafaf9;
+  font-size: 1.5em;
+  width: 300px;
+  height: 100px;
+}
+
+/* V-bucks icon */
+.product-shop-info img {
+  border: none;
+  vertical-align: text-bottom;
+  margin-right: 5px;
+  width: 1em;
+  height: 1em;
 }
 
