@@ -1,12 +1,58 @@
-.cart {
-  text-align: center;
-  color: white;
+@font-face {
+  font-family: Fortnite Font;
+  src: url('../components/fonts/fortnite.otf');
 }
 
-.cart-list {
+.cart {
+  font-family: Fortnite Font;
+  text-align: center;
+  color: white;
+  margin: 20px 0;
+
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+
+.cart-header {
+  font-family: Fortnite Font;
+  letter-spacing: .1rem;
+  font-size: 2rem;
+}
+
+.cart-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  
+  gap: 20px;
   list-style: none;
+  width: 500px;
+}
+
+.cart-product-title {
+  font-size: 1.5rem;
+}
+
+.cart-product-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.cart-product-count {
+  display: flex;
+}
+
+.cart-total-price {
+  font-size: 2rem;
+}
+
+.cart-checkout-button {
+  font-family: Fortnite Font;
+  letter-spacing: .1rem;
+  text-align: center;
+  font-size: 2rem;
+  cursor: pointer;
 }
