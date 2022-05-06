@@ -25,14 +25,14 @@ function Nav({addedProducts}) {
   return (
     <div className='nav'>
       <Link to='/' className='text-link'>
-        <div>Fortnite Shop</div>
+        <div>FORTSHOP</div>
       </Link>
       <ul className='nav-links'>
         <Link to='/' className='text-link'>
-          <li>Home</li>
+          <li>HOME</li>
         </Link>
         <Link to='/shop' className='text-link'>
-          <li>Shop</li>
+          <li>SHOP</li>
         </Link>
         <Link to='/cart' className='text-link'>
           <div>
