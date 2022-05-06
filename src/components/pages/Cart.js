@@ -30,14 +30,15 @@ function Cart({addedProducts, changeProductCount}) {
 
   return (addedProducts.length === 0) 
   ? <div className='cart'>
-      <h1>Your Shopping Cart</h1>
+      <div className='cart-header'>Your Shopping Cart</div>
       <div>Shopping Cart is Empty</div>
     </div>
   : <div className='cart'>
-      <h1>Your Shopping Cart</h1>
+      <div className='cart-header'>Your Shopping Cart</div>
       {addedProducts.map(product => 
         <div key={product.productId} className='cart-list'>
-          <li>{`${product.productName} | ${product.productId} | ${product.productCount} | ${product.productPrice}`}</li>
+          <img className={`cart-product-icon ${product.productRarity}`} src={product.productIcon} alt='product-icon'></img>
+          <div className='cart-product-title'>{product.productName}</div>
           <div className='cart-product-count'>
             <button onClick={() => handleButtonClick(product.productCount, product.productId, 'increment')}>Add</button>
             <input type='number' value={product.productCount} onChange={(event) => handleChange(event, product.productId)} ></input>
@@ -45,8 +46,8 @@ function Cart({addedProducts, changeProductCount}) {
           </div>
         </div>
       )}
-      <h1>Total: {totalPrice}</h1>
-      <button>Checkout</button>
+      <div className='cart-total-price'>Total: {totalPrice}</div>
+      <button className='cart-checkout-button'>Checkout</button>
     </div>
 }
 
