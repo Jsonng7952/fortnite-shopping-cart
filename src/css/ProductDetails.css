@@ -1,9 +1,124 @@
-
+@font-face {
+  font-family: Fornite Font;
+  src: url('../components/fonts/fortnite.otf');
+}
 
 .product-detail {
+  font-family: Fornite Font;
+  letter-spacing: .1rem;
+  margin: 20px 125px;
+  padding: 20px 0;
+  text-align: center;
+  background-color: #111827;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-name {
+  font-size: 3rem;
   color: white;
 }
 
-img {
-  border: 1px solid white;
+.product-info-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-info-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-price .vbuck-icon {
+  border: none;
+  vertical-align: text-bottom;
+  margin-right: 5px;
+  width: 1em;
+  height: 1em;
+}
+
+.product-price {
+  font-size: 2rem;
+  color: white;
+}
+
+.product-description {
+  font-size: 2rem;
+  color: white;
+}
+
+.product-detail .product-icon {
+  width: 500px;
+  height: 500px;
+  border: 5px solid rgb(255, 0, 255);
+  box-shadow: 0px 0px 10px rgb(255, 0, 255);
+}
+
+.product-detail .product-icon.common {
+  border: 5px solid grey;
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+
+.product-detail .product-icon.uncommon {
+  border: 5px solid green;
+  box-shadow: 0px 0px 10px rgb(0, 255, 0);
+}
+
+.product-detail .product-icon.rare {
+  border: 5px solid blue;
+  box-shadow: 0px 0px 10px rgb(0, 81, 255);
+}
+
+.product-detail .product-icon.epic {
+  border: 5px solid purple;
+  box-shadow: 0px 0px 10px rgb(255, 0, 255);
+}
+
+.product-detail .product-icon.legendary {
+  border: 5px solid orange;
+  box-shadow: 0px 0px 10px rgb(255, 174, 0);
+}
+
+.product-form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-form input {
+  font-family: Fornite Font;
+  text-align: center;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  width: 60px;
+  font-size: 1.5rem;
+}
+
+.product-form button {
+  font-family: Fornite Font;
+  color: white;
+  letter-spacing: .1rem;
+  text-align: center;
+  font-size: 2rem;
+  border: none;
+  background-color: Transparent;
+  cursor: pointer;
+
+  transition: background-color 0.25s;
+}
+
+.product-form button:hover {
+  background-color: red;
 }
