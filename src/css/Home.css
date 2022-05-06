@@ -1,5 +1,30 @@
+@font-face {
+  font-family: Fornite Font;
+  src: url('../components/fonts/fortnite.otf');
+}
+
 .home {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-text-link {
+  font-family: Fornite Font;
+  text-decoration: none;
   color: white;
-  font-size: 2rem;
+  font-size: 5rem;
+
+  position: relative;
+  animation-name: shopnowlink;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+
+@keyframes shopnowlink {
+  0%    {top: 0}
+  100%  {top: 200px}
 }
