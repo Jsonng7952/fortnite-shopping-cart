@@ -32,8 +32,10 @@ function Shop() {
           state= {{
             productName: shopData.items[0].name, 
             productDescription: shopData.items[0].description,
-            productIcon: shopData.items[0].images.featured,
-            productPrice: shopData.finalPrice
+            productIcon: shopData.newDisplayAsset.materialInstances[0].images.Background,
+            productPrice: shopData.finalPrice,
+            vBuckIcon: items.vbuckIcon,
+            productRarity: shopData.items[0].rarity.value
           }}
         >
           {<img src={`${shopData.newDisplayAsset.materialInstances[0].images.Background}`} alt='product-card-icon'></img>}
@@ -53,8 +55,10 @@ function Shop() {
           state= {{
             productName: shopData.bundle.name, 
             productDescription: shopData.bundle.info,
-            productIcon: shopData.bundle.image,
-            productPrice: shopData.finalPrice
+            productIcon: shopData.newDisplayAsset.materialInstances[0].images.Background,
+            productPrice: shopData.finalPrice,
+            vBuckIcon: items.vbuckIcon,
+            productRarity: ''
           }}                        
         >
           {<img src={`${shopData.newDisplayAsset.materialInstances[0].images.Background}`} alt='product-card-icon'></img>}
@@ -70,7 +74,7 @@ function Shop() {
     <div>Loading Data...</div> :
     <div className='shop'>
       <Filter filterResults={filterResults}/>
-      <h1 className='shop-header'>Daily</h1>
+      <div className='shop-header'>Daily</div>
       <div className='daily-shop'>
         {(filteredResults === 'all' || filteredResults === '') 
           ? items.daily.entries.map(dailyItem => displayShop(dailyItem))  
@@ -79,7 +83,7 @@ function Shop() {
             .map(dailyItem => displayShop(dailyItem))
         }
       </div>
-      <h1 className='shop-header'>Featured</h1>
+      <div className='shop-header'>Featured</div>
       <div className='featured-shop'>
         {(filteredResults === 'all' || filteredResults === '') 
           ? items.featured.entries.map(featuredItem => displayShop(featuredItem))  
@@ -89,7 +93,7 @@ function Shop() {
             .map(featuredItem => displayShop(featuredItem))
         }
       </div>
-      <h1 className='shop-header'>Special Featured</h1>
+      <div className='shop-header'>Special Featured</div>
       <div className='special-featured-shop'>
         {(filteredResults === 'all' || filteredResults === '') 
           ? items.specialFeatured.entries.map(specialFeatured => displayShop(specialFeatured))  
