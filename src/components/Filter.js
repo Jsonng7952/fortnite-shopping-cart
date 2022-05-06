@@ -1,48 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../css/Filter.css';
-
-/*
-  In-game
-  BackBling
-  Emotes
-  Emoticons
-  Gliders
-  Pickaxes
-  loadings screens
-  music 
-  outfits
-  contrails
-  sprays
-  toys
-  umbrellas
-
-  Seen in API
-  backpack
-  emote
-  glider
-  pickaxe
-  loadings screens
-  outfit
-  wraps
-*/
 
 function Filter({filterResults}) {
 
+  const [selectedButton, setSelectedButton] = useState('all');
+
   const handleFilter = (filterValue) => {
     filterResults(filterValue);
+    setSelectedButton(filterValue);
   };
 
   return (
     <div className='filter'>
       <div className='filter-buttons'>
-        <button onClick={() => handleFilter('all')}>All</button>
-        <button onClick={() => handleFilter('backpack')}>Backpack</button>
-        <button onClick={() => handleFilter('emote')}>Emote</button>
-        <button onClick={() => handleFilter('glider')}>Glider</button>
-        <button onClick={() => handleFilter('pickaxe')}>Pickaxe</button>
-        <button onClick={() => handleFilter('loadingscreen')}>Loading Screen</button>
-        <button onClick={() => handleFilter('outfit')}>Outfit</button>
-        <button onClick={() => handleFilter('wrap')}>Wrap</button>
+        <button className={(selectedButton === 'all') ? 'select' : ''} onClick={() => handleFilter('all')}>All</button>
+        <button className={(selectedButton === 'backpack') ? 'select' : ''} onClick={() => handleFilter('backpack')}>Backpack</button>
+        <button className={(selectedButton === 'emote') ? 'select' : ''} onClick={() => handleFilter('emote')}>Emote</button>
+        <button className={(selectedButton === 'glider') ? 'select' : ''} onClick={() => handleFilter('glider')}>Glider</button>
+        <button className={(selectedButton === 'pickaxe') ? 'select' : ''} onClick={() => handleFilter('pickaxe')}>Pickaxe</button>
+        <button className={(selectedButton === 'loadingscreen') ? 'select' : ''} onClick={() => handleFilter('loadingscreen')}>Loading Screen</button>
+        <button className={(selectedButton === 'outfit') ? 'select' : ''} onClick={() => handleFilter('outfit')}>Outfit</button>
+        <button className={(selectedButton === 'wrap') ? 'select' : ''} onClick={() => handleFilter('wrap')}>Wrap</button>
       </div>
     </div>
   )
