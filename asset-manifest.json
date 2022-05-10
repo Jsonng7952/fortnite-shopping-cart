@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/my-app/static/css/main.a2f2d8a0.css",
-    "main.js": "/my-app/static/js/main.b9b2b330.js",
+    "main.js": "/my-app/static/js/main.dc68f4f9.js",
     "static/media/fortnite.otf": "/my-app/static/media/fortnite.855d754e53e004037bf1.otf",
     "index.html": "/my-app/index.html",
     "main.a2f2d8a0.css.map": "/my-app/static/css/main.a2f2d8a0.css.map",
-    "main.b9b2b330.js.map": "/my-app/static/js/main.b9b2b330.js.map"
+    "main.dc68f4f9.js.map": "/my-app/static/js/main.dc68f4f9.js.map"
   },
   "entrypoints": [
     "static/css/main.a2f2d8a0.css",
-    "static/js/main.b9b2b330.js"
+    "static/js/main.dc68f4f9.js"
   ]
 }
