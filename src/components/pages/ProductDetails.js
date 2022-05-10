@@ -24,17 +24,19 @@ function ProductDetails({addProduct}) {
 
   return (
     <div className='product-detail'>
-      <div className='product-info-header'>
-        <div className='product-name'>{productName}</div>
-        <div className='product-description'>{productDescription}</div>
-        <img className={`product-icon ${productRarity}`} src={productIcon} alt='product-icon'></img>        
-      </div>
-      <div className='product-info-bottom'>
-        <div className='product-price'><img src={vBuckIcon} alt='vbuck-icon' className='vbuck-icon'></img>{productPrice}</div>
-        <form onSubmit={handleSubmit} className='product-form'>
-          <input type='number' min={0} value={productCount} onChange={handleProductCount}></input>
-          <button type='submit'>Add to Cart</button>
-        </form>        
+      <div className='product-detail-container'>
+        <div className='product-info-header'>
+          <div className='product-name'>{productName}</div>
+          <div className='product-description'>{productDescription}</div>
+          <img className={`product-icon ${productRarity}`} src={productIcon} alt='product-icon'></img>        
+        </div>
+        <div className='product-info-bottom'>
+          <div className='product-price'><img src={vBuckIcon} alt='vbuck-icon' className='vbuck-icon'></img>{productPrice}</div>
+          <form onSubmit={handleSubmit} className='product-form'>
+            <input type='number' min={0} value={productCount} onChange={handleProductCount}></input>
+            <button type='submit'>Add to Cart</button>
+          </form>        
+        </div>        
       </div>
     </div>
   )
