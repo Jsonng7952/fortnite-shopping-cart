@@ -30,7 +30,7 @@ function Shop() {
             pathname:`/shop/${shopData.items[0].id}`
           }}
           state= {{
-            productName: shopData.items[0].name, 
+            productName: shopData.items[0].name.toUpperCase(), 
             productDescription: shopData.items[0].description,
             productIcon: shopData.newDisplayAsset.materialInstances[0].images.Background,
             productPrice: shopData.finalPrice,
@@ -43,8 +43,7 @@ function Shop() {
             <div>{shopData.items[0].name.toUpperCase()}</div>
             <div><img src={items.vbuckIcon} alt='vbuck-icon' className='vbuck-icon'></img>{shopData.finalPrice}</div>
           </div>
-          
-          {/*<div>{shopData.items[0].type.value} : {shopData.items[0].rarity.value}</div>*/}
+
         </Link>
       </div>    
     : <div key={shopData.bundle.name.split(' ').join('_')} className='product-card'>
@@ -53,7 +52,7 @@ function Shop() {
             pathname: `/shop/${shopData.bundle.name.split(' ').join('_')}`
           }} 
           state= {{
-            productName: shopData.bundle.name, 
+            productName: shopData.bundle.name.toUpperCase(), 
             productDescription: shopData.bundle.info,
             productIcon: shopData.newDisplayAsset.materialInstances[0].images.Background,
             productPrice: shopData.finalPrice,
@@ -76,7 +75,8 @@ function Shop() {
       <Filter filterResults={filterResults}/>
       <div className='shop-header'>Daily</div>
       <div className='daily-shop'>
-        {(filteredResults === 'all' || filteredResults === '') 
+        { // Filter the items 
+        (filteredResults === 'all' || filteredResults === '') 
           ? items.daily.entries.map(dailyItem => displayShop(dailyItem))  
           : items.daily.entries
             .filter(dailyItem => dailyItem.items[0].type.value === filteredResults)
@@ -85,7 +85,8 @@ function Shop() {
       </div>
       <div className='shop-header'>Featured</div>
       <div className='featured-shop'>
-        {(filteredResults === 'all' || filteredResults === '') 
+        { // If the filtered item is in the bundle, display the bundle.
+        (filteredResults === 'all' || filteredResults === '') 
           ? items.featured.entries.map(featuredItem => displayShop(featuredItem))  
           : items.featured.entries
             .filter(featuredItem => featuredItem.items[0].type.value === filteredResults 
@@ -95,7 +96,8 @@ function Shop() {
       </div>
       <div className='shop-header'>Special Featured</div>
       <div className='special-featured-shop'>
-        {(filteredResults === 'all' || filteredResults === '') 
+        { // If the filtered item is in the bundle, display the bundle. 
+        (filteredResults === 'all' || filteredResults === '') 
           ? items.specialFeatured.entries.map(specialFeatured => displayShop(specialFeatured))  
           : items.specialFeatured.entries
             .filter(specialFeatured => specialFeatured.items[0].type.value === filteredResults 
