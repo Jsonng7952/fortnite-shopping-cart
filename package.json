@@ -1,6 +1,7 @@
 {
   "name": "fortnite-shopping-cart",
   "version": "0.1.0",
+  "homepage": "https://jsonng7952.github.io/fortnite-shopping-cart",
   "private": true,
   "dependencies": {
     "@mdi/js": "^6.6.96",
@@ -21,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://myusername.github.io/my-app"
+  }
 }
