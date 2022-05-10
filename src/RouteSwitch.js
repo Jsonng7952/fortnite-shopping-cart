@@ -51,7 +51,7 @@ function RouteSwitch() {
   };
 
   return (
-    <BrowserRouter basename="/fortshop">      
+    <BrowserRouter basename="/fortnite-shopping-cart">      
       <Nav addedProducts={addedProducts}/>   
       <Routes>  
         <Route path="/" element={<Home />} />
