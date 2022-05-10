@@ -6,7 +6,7 @@
 .shop {
   font-family: Fornite Font;
   letter-spacing: .2rem;
-  margin: 20px 125px;
+  margin: 20px 100px;
   text-align: center;
 }
 
@@ -15,14 +15,17 @@
   background-color: #111827;
   font-size: 2rem;
   margin: 20px 0;
+  flex: 0 0 300px;
 }
 
-.daily-shop, .featured-shop, .special-featured-shop {
+.daily-shop, 
+.featured-shop, 
+.special-featured-shop {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 3rem));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: 1fr;
-  gap: 3rem;
+  gap: 50px;
   justify-items: center; 
 }
 
@@ -85,7 +88,6 @@
   text-decoration: none;
 }
 
-/* Product Name and Price */
 .product-shop-info {
   display: flex;
   flex-direction: column;
@@ -99,7 +101,6 @@
   height: 100px;
 }
 
-/* V-bucks icon */
 .product-shop-info img {
   border: none;
   vertical-align: text-bottom;
