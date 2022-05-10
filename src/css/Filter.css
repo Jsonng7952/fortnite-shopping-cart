@@ -10,7 +10,7 @@
   margin: 20px 0;
   white-space: nowrap;
   padding: 1rem;
-
+  flex-wrap: wrap;
 }
 
 .filter-buttons button {
