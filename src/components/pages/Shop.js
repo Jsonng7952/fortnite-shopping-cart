@@ -22,6 +22,11 @@ function Shop() {
 
   // Displays the shop data from the Fornite API.
   const displayShop = (shopData) => {
+    // In the case that the image w/ background is null, just get the image itself.
+    let pIcon = (shopData.newDisplayAsset === null)
+                ? shopData.items[0].images.icon
+                : shopData.newDisplayAsset.materialInstances[0].images.Background;
+
     // Check to see if the data is a bundle item or not. 
     return (shopData.bundle === null)
     ? <div key={shopData.items[0].id} className={`product-card ${shopData.items[0].rarity.value}`}>
@@ -32,13 +37,13 @@ function Shop() {
           state= {{
             productName: shopData.items[0].name.toUpperCase(), 
             productDescription: shopData.items[0].description,
-            productIcon: shopData.newDisplayAsset.materialInstances[0].images.Background,
+            productIcon: pIcon,
             productPrice: shopData.finalPrice,
             vBuckIcon: items.vbuckIcon,
             productRarity: shopData.items[0].rarity.value
           }}
         >
-          {<img src={`${shopData.newDisplayAsset.materialInstances[0].images.Background}`} alt='product-card-icon'></img>}
+          {<img src={`${pIcon}`} alt='product-card-icon'></img>}
           <div className='product-shop-info'>
             <div>{shopData.items[0].name.toUpperCase()}</div>
             <div><img src={items.vbuckIcon} alt='vbuck-icon' className='vbuck-icon'></img>{shopData.finalPrice}</div>
@@ -54,13 +59,13 @@ function Shop() {
           state= {{
             productName: shopData.bundle.name.toUpperCase(), 
             productDescription: shopData.bundle.info,
-            productIcon: shopData.newDisplayAsset.materialInstances[0].images.Background,
+            productIcon: pIcon,
             productPrice: shopData.finalPrice,
             vBuckIcon: items.vbuckIcon,
             productRarity: ''
           }}                        
         >
-          {<img src={`${shopData.newDisplayAsset.materialInstances[0].images.Background}`} alt='product-card-icon'></img>}
+          {<img src={`${pIcon}`} alt='product-card-icon'></img>}
           <div className='product-shop-info'>
             <div>{shopData.bundle.name.toUpperCase()}</div>
             <div><img src={items.vbuckIcon} alt='vbuck-icon' className='vbuck-icon'></img>{shopData.finalPrice}</div>
