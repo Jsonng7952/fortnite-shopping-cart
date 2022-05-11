@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/fortnite-shopping-cart/static/css/main.30c519c0.css",
-    "main.js": "/fortnite-shopping-cart/static/js/main.c5591a4e.js",
+    "main.js": "/fortnite-shopping-cart/static/js/main.7e559f66.js",
     "static/media/fortnite.otf": "/fortnite-shopping-cart/static/media/fortnite.855d754e53e004037bf1.otf",
     "index.html": "/fortnite-shopping-cart/index.html",
     "main.30c519c0.css.map": "/fortnite-shopping-cart/static/css/main.30c519c0.css.map",
-    "main.c5591a4e.js.map": "/fortnite-shopping-cart/static/js/main.c5591a4e.js.map"
+    "main.7e559f66.js.map": "/fortnite-shopping-cart/static/js/main.7e559f66.js.map"
   },
   "entrypoints": [
     "static/css/main.30c519c0.css",
-    "static/js/main.c5591a4e.js"
+    "static/js/main.7e559f66.js"
   ]
 }
